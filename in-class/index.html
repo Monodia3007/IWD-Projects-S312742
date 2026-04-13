@@ -2,11 +2,38 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>LNN</title>
   </head>
   <body>
-    <p>
-      Hello World
-    </p>
+    <nav class="bg-gray-100 border-b border-gray-300">
+      <div class="container mx-auto px-4 flex items-center gap-4 py-2">
+        <a class="text-xl font-semibold text-gray-800" href="index.html">Lilith News Network</a>
+        <button class="md:hidden items-center p-2 rounded text-gray-800 hover:bg-gray-200 ml-auto" onclick="this.nextElementSibling.classList.toggle('hidden')">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <div class="hidden md:block" id="navbarNav">
+          <ul class="flex flex-col md:flex-row gap-2 md:gap-4">
+            <li>
+              <a class="text-gray-700 hover:text-blue-600" href="index.html">Home</a>
+            </li>
+            <li>
+              <a class="text-gray-700 hover:text-blue-600" href="sport.html">Sport</a>
+            </li>
+            <li>
+              <a class="text-gray-700 hover:text-blue-600" href="education.html">Education</a>
+            </li>
+            <li>
+              <a class="text-gray-700 hover:text-blue-600" href="gaming.html">Gaming</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container mx-auto px-4 py-4">
+      <h1 class="text-3xl font-bold">Welcome to LNN</h1>
+      <p class="mt-4">This is an awesome new website with news from around the world.</p>
+    </div>
   </body>
 </html>
