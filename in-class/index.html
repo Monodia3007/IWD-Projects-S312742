@@ -5,27 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
     <script src="https://cdn.tailwindcss.com"></script>
     <title>LNN</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://kit.fontawesome.com/53291f9112.js" crossorigin="anonymous"></script>
   </head>
   <body>
     <nav class="bg-gray-100 border-b border-gray-300">
       <div class="container mx-auto px-4 flex items-center gap-4 py-2">
-        <a class="text-xl font-semibold text-gray-800" href="index.html">Lilith News Network</a>
+        <a class="text-xl font-semibold text-gray-800 brandlink" href="index.html">Lilith News Network</a>
         <button class="md:hidden items-center p-2 rounded text-gray-800 hover:bg-gray-200 ml-auto" onclick="this.nextElementSibling.classList.toggle('hidden')">
           <i class="fa-solid fa-bars"></i>
         </button>
         <div class="hidden md:block" id="navbarNav">
           <ul class="flex flex-col md:flex-row gap-2 md:gap-4">
             <li>
-              <a class="text-gray-700 hover:text-blue-600" href="index.html">Home</a>
+              <a class="text-gray-700 hover:text-blue-600" href="index.html"><i class="fa-solid fa-house mr-2"></i>Home</a>
             </li>
             <li>
-              <a class="text-gray-700 hover:text-blue-600" href="sport.html">Sport</a>
+              <a class="text-gray-700 hover:text-blue-600" href="sport.html"><i class="fa-solid fa-person-running mr-2"></i>Sport</a>
             </li>
             <li>
-              <a class="text-gray-700 hover:text-blue-600" href="education.html">Education</a>
+              <a class="text-gray-700 hover:text-blue-600" href="education.html"><i class="fa-solid fa-graduation-cap mr-2"></i>Education</a>
             </li>
             <li>
-              <a class="text-gray-700 hover:text-blue-600" href="gaming.html">Gaming</a>
+              <a class="text-gray-700 hover:text-blue-600" href="gaming.html"><i class="fa-solid fa-gamepad mr-2"></i>Gaming</a>
             </li>
           </ul>
         </div>
