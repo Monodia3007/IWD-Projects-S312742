@@ -3,3 +3,11 @@ nav .brandlink {
     font-weight: 400;
     font-style: normal;
 }
+
+#home-page .jumbotron{
+    background-image: url("../images/bjarstin-rose-9917575_1920.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    color: #FFF;
+}
