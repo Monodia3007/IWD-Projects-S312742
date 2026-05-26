@@ -11,67 +11,78 @@
     <link href="css/style.css" rel="stylesheet">
     <script crossorigin="anonymous" src="https://kit.fontawesome.com/53291f9112.js"></script>
 </head>
-<body class="bg-gray-100 dark:bg-slate-800 text-gray-800 dark:text-slate-200" id="home-page">
+<body class="bg-gray-100 text-gray-800 dark:bg-slate-800 dark:text-slate-200" id="home-page">
 <div class="jumbotron">
-    <div class="bg-gray-100 dark:bg-slate-900 shadow-md rounded-b-lg mx-4">
+    <div class="mx-4 rounded-b-lg bg-gray-100 shadow-md dark:bg-slate-900">
         <nav>
-            <div class="container px-4 flex sm:flex-wrap md:flex-no-wrap gap-4 py-2 mx-auto">
-                <a class="text-xl font-semibold text-gray-700 dark:text-slate-200 brandlink" href="index.html">TVtastic</a>
-                <button class="md:hidden items-center p-2 rounded text-gray-800 hover:bg-gray-200 ml-auto"
+            <div class="container mx-auto flex gap-4 px-4 py-2 sm:flex-wrap md:flex-nowrap">
+                <a class="brandlink text-xl font-semibold text-gray-700 dark:text-slate-200"
+                   href="index.html">TVtastic</a>
+
+                <button class="ml-auto items-center rounded p-2 text-gray-800 hover:bg-gray-200 md:hidden"
                         onclick="this.nextElementSibling.classList.toggle('hidden')">
                     <i class="fa-solid fa-bars"></i>
                 </button>
-                <div class="sm:hidden md:block flex-auto" id="navbarNav">
-                    <ul class="flex flex-row sm:gap-2 md:gap-4 md:justify-end">
+
+                <div class="flex-auto sm:hidden md:block" id="navbarNav">
+                    <ul class="flex flex-row sm:gap-2 md:justify-end md:gap-4">
                         <li>
-                            <a class="text-gray-700 dark:text-slate-200 hover:text-indigo-600 dark:hover:text-indigo-400"
+                            <a class="text-gray-700 hover:text-indigo-600 dark:text-slate-200 dark:hover:text-indigo-400"
                                href="index.html">
-                                <i class="fa-solid fa-house mr-2"></i>Home</a>
+                                <i class="fa-solid fa-house mr-2"></i>Home
+                            </a>
                         </li>
                         <li>
-                            <a class="text-gray-700 dark:text-slate-200 hover:text-indigo-600 dark:hover:text-indigo-400"
+                            <a class="text-gray-700 hover:text-indigo-600 dark:text-slate-200 dark:hover:text-indigo-400"
                                href="">
-                                <i class="fa-solid fa-tv mr-2"></i>Shows</a>
+                                <i class="fa-solid fa-tv mr-2"></i>Shows
+                            </a>
                         </li>
                         <li>
-                            <a class="text-gray-700 dark:text-slate-200 hover:text-indigo-600 dark:hover:text-indigo-400"
+                            <a class="text-gray-700 hover:text-indigo-600 dark:text-slate-200 dark:hover:text-indigo-400"
                                href="">
-                                <i class="fa-solid fa-image-portrait mr-2"></i>Actors</a>
+                                <i class="fa-solid fa-image-portrait mr-2"></i>Actors
+                            </a>
                         </li>
                         <li>
-                            <a class="text-gray-700 dark:text-slate-200 hover:text-indigo-600 dark:hover:text-indigo-400"
+                            <a class="text-gray-700 hover:text-indigo-600 dark:text-slate-200 dark:hover:text-indigo-400"
                                href="">
-                                <i class="fa-solid fa-calendar mr-2"></i>Schedule</a>
+                                <i class="fa-solid fa-calendar mr-2"></i>Schedule
+                            </a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
     </div>
-    <div class="p-12 mb-4 ">
+
+    <div class="mb-4 p-12">
         <h1 class="text-5xl font-bold">Welcome to TVtastic</h1>
-        <p class="md:w-2/3 text-2xl">
+        <p class="text-2xl md:w-2/3">
             Look up the latest shows, actors and see the schedules
         </p>
     </div>
 </div>
-<div class="container px-4 grid sm:grid-cols-1 md:grid-cols-2 content-center size-full mx-auto md:divide-x sm:divide-y md:divide-y-0 divide-slate-600">
-    <div class="container p-4 dark:bg-slate-700 bg-gray-100 sm:rounded-t-lg md:rounded-l-lg md:rounded-tr-none">
-        <h2 class="text-2xl font-semibold pb-4 text-center">Top Shows</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 p-4" id="shows">
-            <div class="container shadow-md rounded-lg p-2">1-1</div>
-            <div class="container shadow-md rounded-lg p-2">1-2</div>
-            <div class="container shadow-md rounded-lg p-2">1-3</div>
+
+<div class="container mx-auto grid size-full content-center px-4 sm:grid-cols-1 sm:divide-y md:grid-cols-2 md:divide-x md:divide-y-0 divide-slate-600">
+    <div class="container bg-gray-100 p-4 dark:bg-slate-700 sm:rounded-t-lg md:rounded-l-lg md:rounded-tr-none">
+        <h2 class="pb-4 text-center text-2xl font-semibold">Top Shows</h2>
+        <div class="grid grid-cols-1 p-4 md:grid-cols-2" id="shows">
+            <div class="container rounded-lg p-2 shadow-md">1-1</div>
+            <div class="container rounded-lg p-2 shadow-md">1-2</div>
+            <div class="container rounded-lg p-2 shadow-md">1-3</div>
         </div>
     </div>
-    <div class="container p-4 dark:bg-slate-700 bg-gray-100 sm:rounded-b-lg md:rounded-r-lg md:rounded-bl-none">
-        <h2 class="text-2xl font-semibold pb-4 text-center">Top Actors</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 p-4" id="actors">
-            <div class="container shadow-md rounded-lg p-2">1-1</div>
-            <div class="container shadow-md rounded-lg p-2">1-2</div>
+
+    <div class="container bg-gray-100 p-4 dark:bg-slate-700 sm:rounded-b-lg md:rounded-r-lg md:rounded-bl-none">
+        <h2 class="pb-4 text-center text-2xl font-semibold">Top Actors</h2>
+        <div class="grid grid-cols-1 p-4 md:grid-cols-2" id="actors">
+            <div class="container rounded-lg p-2 shadow-md">1-1</div>
+            <div class="container rounded-lg p-2 shadow-md">1-2</div>
         </div>
     </div>
 </div>
+
 <script src="./js/index.js"></script>
 </body>
 </html>
