@@ -15,15 +15,14 @@
 <div class="jumbotron">
     <div class="bg-gray-100 dark:bg-slate-900 shadow-md rounded-b-lg mx-4">
         <nav>
-            <div class="container px-4 flex items-center gap-4 py-2">
-                <a class="text-xl font-semibold text-gray-700 dark:text-slate-200 brandlink" href="index.html"><\insert
-                    website name here></a>
+            <div class="container px-4 flex sm:flex-wrap md:flex-no-wrap gap-4 py-2 mx-auto">
+                <a class="text-xl font-semibold text-gray-700 dark:text-slate-200 brandlink" href="index.html">TVtastic</a>
                 <button class="md:hidden items-center p-2 rounded text-gray-800 hover:bg-gray-200 ml-auto"
                         onclick="this.nextElementSibling.classList.toggle('hidden')">
                     <i class="fa-solid fa-bars"></i>
                 </button>
-                <div class="hidden md:block" id="navbarNav">
-                    <ul class="flex flex-col md:flex-row gap-2 md:gap-4">
+                <div class="sm:hidden md:block flex-auto" id="navbarNav">
+                    <ul class="flex flex-row sm:gap-2 md:gap-4 md:justify-end">
                         <li>
                             <a class="text-gray-700 dark:text-slate-200 hover:text-indigo-600 dark:hover:text-indigo-400"
                                href="index.html">
@@ -50,14 +49,29 @@
         </nav>
     </div>
     <div class="p-12 mb-4 ">
-        <h1 class="text-5xl font-bold">Welcome to <\insert website name here></h1>
+        <h1 class="text-5xl font-bold">Welcome to TVtastic</h1>
         <p class="md:w-2/3 text-2xl">
             Look up the latest shows, actors and see the schedules
         </p>
     </div>
 </div>
-<div class="container mx-auto px-4">
-
+<div class="container px-4 grid sm:grid-cols-1 md:grid-cols-2 content-center size-full mx-auto md:divide-x sm:divide-y md:divide-y-0 divide-slate-600">
+    <div class="container p-4 dark:bg-slate-700 bg-gray-100 sm:rounded-t-lg md:rounded-l-lg md:rounded-tr-none">
+        <h2 class="text-2xl font-semibold pb-4 text-center">Top Shows</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 p-4" id="shows">
+            <div class="container shadow-md rounded-lg p-2">1-1</div>
+            <div class="container shadow-md rounded-lg p-2">1-2</div>
+            <div class="container shadow-md rounded-lg p-2">1-3</div>
+        </div>
+    </div>
+    <div class="container p-4 dark:bg-slate-700 bg-gray-100 sm:rounded-b-lg md:rounded-r-lg md:rounded-bl-none">
+        <h2 class="text-2xl font-semibold pb-4 text-center">Top Actors</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 p-4" id="actors">
+            <div class="container shadow-md rounded-lg p-2">1-1</div>
+            <div class="container shadow-md rounded-lg p-2">1-2</div>
+        </div>
+    </div>
 </div>
+<script src="./js/index.js"></script>
 </body>
 </html>
