@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" name="viewport">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>TVtastic - Actors</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <script crossorigin="anonymous" src="https://kit.fontawesome.com/53291f9112.js"></script>
+</head>
+<body class="bg-gray-100 text-gray-800 dark:bg-slate-800 dark:text-slate-200" id="shows-page">
+<div class="mx-4 rounded-b-xl bg-gray-100 shadow-md dark:bg-slate-900">
+    <nav>
+        <div class="container mx-auto flex gap-4 px-4 py-2 flex-wrap md:flex-nowrap">
+            <a class="brandlink text-xl font-semibold text-gray-700 dark:text-slate-200"
+               href="index.html">TVtastic</a>
+
+            <button class="ml-auto items-center rounded p-2 text-gray-800 hover:bg-gray-200 dark:text-slate-200 dark:hover:bg-slate-700 md:hidden"
+                    onclick="this.nextElementSibling.classList.toggle('hidden')">
+                <i class="fa-solid fa-bars !text-gray-800 dark:!text-slate-200"></i>
+            </button>
+
+            <div class="hidden flex-auto md:block" id="navbarNav">
+                <ul class="flex flex-col gap-2 md:flex-row md:justify-end md:gap-4">
+                    <li>
+                        <a class="text-gray-700 hover:text-indigo-600 dark:text-slate-200 dark:hover:text-indigo-400"
+                           href="index.html">
+                            <i class="fa-solid fa-house mr-2"></i>Home
+                        </a>
+                    </li>
+                    <li>
+                        <a class="text-gray-700 hover:text-indigo-600 dark:text-slate-200 dark:hover:text-indigo-400"
+                           href="shows.html">
+                            <i class="fa-solid fa-tv mr-2"></i>Shows
+                        </a>
+                    </li>
+                    <li>
+                        <a class="text-gray-700 hover:text-indigo-600 dark:text-slate-200 dark:hover:text-indigo-400"
+                           href="actors.html">
+                            <i class="fa-solid fa-image-portrait mr-2"></i>Actors
+                        </a>
+                    </li>
+                    <li>
+                        <a class="text-gray-700 hover:text-indigo-600 dark:text-slate-200 dark:hover:text-indigo-400"
+                           href="schedule.html">
+                            <i class="fa-solid fa-calendar mr-2"></i>Schedule
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<form class="mx-auto mt-4 w-full px-4 md:w-3/4 lg:w-1/2"
+      id="search-form"
+      onsubmit="searchActors(event)">
+    <div class="grid grid-cols-1 gap-2 sm:grid-cols-9 sm:gap-0">
+        <input class="h-full w-full rounded-full border border-gray-300 px-3 py-2 text-sm text-gray-800 focus:outline-none focus:ring-1 focus:ring-blue-500 dark:border-slate-600 dark:bg-slate-700 dark:text-slate-200 sm:col-span-8 sm:rounded-l-full sm:rounded-r-none"
+               id="keywords"
+               placeholder="Enter search here…"
+               type="text">
+
+        <button class="h-full w-full rounded-full bg-indigo-600 px-3 py-2 text-sm text-white hover:bg-indigo-700 sm:col-span-1 sm:rounded-l-none sm:rounded-r-full"
+                type="submit">
+            Search
+        </button>
+    </div>
+
+    <div class="mt-3 grid grid-cols-1 gap-3 md:grid-cols-4">
+        <select class="w-full rounded border border-gray-300 px-2 py-2 text-sm text-gray-800 dark:border-slate-600 dark:bg-slate-700 dark:text-slate-200"
+                id="gender-filter">
+            <option value="">Any gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+        </select>
+
+        <select class="w-full rounded border border-gray-300 px-2 py-2 text-sm text-gray-800 dark:border-slate-600 dark:bg-slate-700 dark:text-slate-200"
+                id="country-filter">
+            <option value="">Any country</option>
+            <option value="United States">United States</option>
+            <option value="United Kingdom">United Kingdom</option>
+            <option value="Canada">Canada</option>
+            <option value="Japan">Japan</option>
+            <option value="South Korea">South Korea</option>
+            <option value="France">France</option>
+            <option value="Germany">Germany</option>
+        </select>
+
+        <select class="w-full rounded border border-gray-300 px-2 py-2 text-sm text-gray-800 dark:border-slate-600 dark:bg-slate-700 dark:text-slate-200"
+                id="image-filter">
+            <option value="">With or without image</option>
+            <option value="image-only">Only with image</option>
+        </select>
+
+        <select class="w-full rounded border border-gray-300 px-2 py-2 text-sm text-gray-800 dark:border-slate-600 dark:bg-slate-700 dark:text-slate-200"
+                id="birthday-filter">
+            <option value="">Any birthday info</option>
+            <option value="known">Birthday known</option>
+            <option value="unknown">Birthday unknown</option>
+        </select>
+    </div>
+</form>
+
+<div class="container mx-auto my-4 hidden grid size-full content-center rounded-xl bg-gray-100 p-4 px-4 shadow-md dark:bg-slate-700"
+     id="actors-container">
+    <h2 class="pb-4 text-center text-2xl font-semibold">Result</h2>
+    <div class="grid grid-cols-1 gap-4 p-4 md:grid-cols-4" id="actors">
+    </div>
+</div>
+
+<script src="./js/actors.js"></script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" name="viewport">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>TVtastic - Schedule</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <script crossorigin="anonymous" src="https://kit.fontawesome.com/53291f9112.js"></script>
+</head>
+<body class="bg-gray-100 text-gray-800 dark:bg-slate-800 dark:text-slate-200" id="schedule-page">
+<div class="mx-4 rounded-b-xl bg-gray-100 shadow-md dark:bg-slate-900">
+    <nav>
+        <div class="container mx-auto flex gap-4 px-4 py-2 flex-wrap md:flex-nowrap">
+            <a class="brandlink text-xl font-semibold text-gray-700 dark:text-slate-200"
+               href="index.html">TVtastic</a>
+
+            <button class="ml-auto items-center rounded p-2 text-gray-800 hover:bg-gray-200 dark:text-slate-200 dark:hover:bg-slate-700 md:hidden"
+                    onclick="this.nextElementSibling.classList.toggle('hidden')">
+                <i class="fa-solid fa-bars !text-gray-800 dark:!text-slate-200"></i>
+            </button>
+
+            <div class="hidden flex-auto md:block" id="navbarNav">
+                <ul class="flex flex-col gap-2 md:flex-row md:justify-end md:gap-4">
+                    <li>
+                        <a class="text-gray-700 hover:text-indigo-600 dark:text-slate-200 dark:hover:text-indigo-400"
+                           href="index.html">
+                            <i class="fa-solid fa-house mr-2"></i>Home
+                        </a>
+                    </li>
+                    <li>
+                        <a class="text-gray-700 hover:text-indigo-600 dark:text-slate-200 dark:hover:text-indigo-400"
+                           href="shows.html">
+                            <i class="fa-solid fa-tv mr-2"></i>Shows
+                        </a>
+                    </li>
+                    <li>
+                        <a class="text-gray-700 hover:text-indigo-600 dark:text-slate-200 dark:hover:text-indigo-400"
+                           href="actors.html">
+                            <i class="fa-solid fa-image-portrait mr-2"></i>Actors
+                        </a>
+                    </li>
+                    <li>
+                        <a class="text-gray-700 hover:text-indigo-600 dark:text-slate-200 dark:hover:text-indigo-400"
+                           href="schedule.html">
+                            <i class="fa-solid fa-calendar mr-2"></i>Schedule
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<form class="mx-auto mt-4 w-full px-4 md:w-3/4 lg:w-1/2"
+      id="schedule-form"
+      onsubmit="loadSchedule(event)">
+    <div class="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        <select class="w-full rounded border border-gray-300 px-2 py-2 text-sm text-gray-800 dark:border-slate-600 dark:bg-slate-700 dark:text-slate-200"
+                id="country-filter">
+            <option value="US">United States</option>
+            <option value="GB">United Kingdom</option>
+            <option value="CA">Canada</option>
+            <option value="AU">Australia</option>
+            <option value="JP">Japan</option>
+            <option value="KR">South Korea</option>
+            <option value="">Any country</option>
+        </select>
+
+        <input class="w-full rounded border border-gray-300 px-2 py-2 text-sm text-gray-800 dark:border-slate-600 dark:bg-slate-700 dark:text-slate-200"
+               id="date-filter"
+               type="date">
+
+        <select class="w-full rounded border border-gray-300 px-2 py-2 text-sm text-gray-800 dark:border-slate-600 dark:bg-slate-700 dark:text-slate-200"
+                id="type-filter">
+            <option value="">Any type</option>
+            <option value="Scripted">Scripted</option>
+            <option value="Reality">Reality</option>
+            <option value="Animation">Animation</option>
+            <option value="Documentary">Documentary</option>
+            <option value="Talk Show">Talk Show</option>
+            <option value="News">News</option>
+            <option value="Sports">Sports</option>
+        </select>
+
+        <button class="w-full rounded bg-indigo-600 px-2 py-2 text-sm text-white hover:bg-indigo-700"
+                type="submit">
+            Load Schedule
+        </button>
+    </div>
+</form>
+
+<div class="mx-2 my-4 hidden rounded-xl bg-gray-100 p-3 shadow-md dark:bg-slate-700 sm:mx-4 md:container md:mx-auto md:p-4"
+     id="schedule-container">
+    <h2 class="pb-4 text-center text-xl font-semibold md:text-2xl">Schedule by Channel</h2>
+    <div class="overflow-x-auto rounded-lg p-2 md:p-4" id="schedule">
+    </div>
+</div>
+
+<script src="./js/schedule.js"></script>
+</body>
+</html>
