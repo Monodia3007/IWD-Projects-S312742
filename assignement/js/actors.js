@@ -7,30 +7,42 @@ const countryFilter = document.querySelector('#country-filter');
 const imageFilter = document.querySelector('#image-filter');
 const birthdayFilter = document.querySelector('#birthday-filter');
 
+/**
+ * Searches for actors based on the specified filters and displays the results.
+ *
+ * @param {Event} event - The event object representing the form submission or related event. Prevents default behaviour to handle submission.
+ * @return {void} - This method does not return any value. The results are dynamically rendered on the UI.
+ */
 function searchActors(event) {
+    // Stop the form from refreshing the page.
     event.preventDefault();
 
+    // Read the current search/filter values from the form.
     const keywords = keywordsInput.value.trim();
     const selectedGender = genderFilter.value;
     const selectedCountry = countryFilter.value;
     const selectedImageFilter = imageFilter.value;
     const selectedBirthdayFilter = birthdayFilter.value;
 
+    // If the search box is empty, hide the result area and remove old results.
     if (keywords === '') {
         actorsContainer.classList.add('hidden');
         actorsList.innerHTML = '';
         return;
     }
 
+    // Show the result area and clear previous results before displaying new ones.
     actorsContainer.classList.remove('hidden');
     actorsList.innerHTML = '';
 
+    // Search TVMaze people using the user's keyword.
     fetch(`https://api.tvmaze.com/search/people?q=${encodeURIComponent(keywords)}`)
         .then(response => response.json())
         .then((results) => {
             const filteredResults = results.filter(function (result) {
                 const actor = result.person;
 
+                // Each filter passes if no option is selected or if the actor matches the selected option.
                 const matchesGender = selectedGender === '' || actor.gender === selectedGender;
                 const matchesCountry = selectedCountry === '' || actor.country?.name === selectedCountry;
                 const matchesImage = selectedImageFilter === '' || actor.image?.medium;
@@ -38,9 +50,11 @@ function searchActors(event) {
                     || (selectedBirthdayFilter === 'known' && actor.birthday)
                     || (selectedBirthdayFilter === 'unknown' && !actor.birthday);
 
+                // Only keep actors that match every selected filter.
                 return matchesGender && matchesCountry && matchesImage && matchesBirthday;
             });
 
+            // Show a friendly message if no actor matches the search/filter settings.
             if (filteredResults.length === 0) {
                 actorsList.innerHTML = `<p class="col-span-full text-center text-gray-600 dark:text-slate-300">No actors found.</p>`;
                 return;
@@ -49,22 +63,9 @@ function searchActors(event) {
             filteredResults.forEach(function (result) {
                 const actor = result.person;
 
-                const actorElement = `<div class="container rounded-lg p-2 shadow-md">
-                                        <img class="mb-2 w-full rounded-lg"
-                                             src="${actor.image?.medium ?? 'https://dummyimage.com/210x295/cccccc/000000&text=No+Image'}"
-                                             alt="${actor.name}">
-                                        <h5 class="mb-2 text-lg font-semibold">${actor.name}</h5>
-                                        <p class="mb-1 text-gray-600 dark:text-slate-300">Gender: ${actor.gender ?? 'Unknown'}</p>
-                                        <p class="mb-1 text-gray-600 dark:text-slate-300">Country: ${actor.country?.name ?? 'Unknown'}</p>
-                                        <p class="mb-3 text-gray-600 dark:text-slate-300">Birthday: ${actor.birthday ?? 'Unknown'}</p>
-                                        <a class="inline-block rounded bg-indigo-500 px-4 py-2 text-white hover:bg-indigo-600"
-                                           href="${actor.url}"
-                                           target="_blank">
-                                            View Actor
-                                        </a>
-                                    </div>`;
-
-                actorsList.insertAdjacentHTML('beforeend', actorElement);
+                // createActorCard() comes from details.js and includes the "View Actor" modal button.
+                // The second argument shows extra details on the actor search page.
+                actorsList.insertAdjacentHTML('beforeend', createActorCard(actor, true));
             });
         });
 }

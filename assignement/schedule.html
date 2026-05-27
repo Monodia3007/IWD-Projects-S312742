@@ -57,6 +57,7 @@
             </div>
         </nav>
     </div>
+</div>
 
 <form class="mx-auto mt-4 w-full px-4 md:w-3/4 lg:w-1/2"
       id="schedule-form"
@@ -96,13 +97,33 @@
     </div>
 </form>
 
-<div class="mx-2 my-4 hidden rounded-xl bg-gray-100 p-3 shadow-md dark:bg-slate-700 sm:mx-4 md:container md:mx-auto md:p-4"
-     id="schedule-container">
-    <h2 class="pb-4 text-center text-xl font-semibold md:text-2xl">Schedule by Channel</h2>
-    <div class="overflow-x-auto rounded-lg p-2 md:p-4" id="schedule">
+    <div class="mx-2 my-4 hidden rounded-xl bg-gray-100 p-3 shadow-md dark:bg-slate-700 sm:mx-4 md:container md:mx-auto md:p-4"
+         id="schedule-container">
+        <h2 class="pb-4 text-center text-xl font-semibold md:text-2xl">Schedule by Channel</h2>
+        <div class="overflow-x-auto rounded-lg p-2 md:p-4" id="schedule">
+        </div>
     </div>
-</div>
 
-<script src="./js/schedule.js"></script>
+    <div class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-950/80 p-2 sm:p-4"
+         id="episode-modal">
+        <div class="relative h-[92vh] w-full max-w-6xl overflow-hidden rounded-xl bg-gray-100 shadow-2xl dark:bg-slate-800 sm:h-[90vh]">
+            <div class="flex items-center justify-between border-b border-gray-300 bg-gray-100 px-3 py-2 dark:border-slate-600 dark:bg-slate-900 sm:px-4">
+                <h3 class="text-base font-semibold text-gray-800 dark:text-slate-200 sm:text-lg">
+                    Episode Details
+                </h3>
+
+                <button class="rounded bg-indigo-600 px-3 py-1.5 text-sm text-white hover:bg-indigo-700"
+                        onclick="closeEpisodeDetails()"
+                        type="button">
+                    Close
+                </button>
+            </div>
+
+            <iframe class="h-[calc(92vh-49px)] w-full bg-gray-100 dark:bg-slate-800 sm:h-[calc(90vh-49px)]"
+                    id="episode-details-frame"
+                    title="Episode details"></iframe>
+        </div>
+    </div>
+    <script src="./js/schedule.js"></script>
 </body>
 </html>
