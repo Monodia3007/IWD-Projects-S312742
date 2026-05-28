@@ -5,7 +5,7 @@ const loadingPage = (message) => `
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="https://cdn.tailwindcss.com"><\/script>
+        <link rel="stylesheet" href="../dist/styles.css">
         <title>${message}</title>
     </head>
     <body class="bg-gray-100 p-4 text-gray-800 dark:bg-slate-800 dark:text-slate-200 sm:p-6">
@@ -25,7 +25,7 @@ const detailsPage = (title, content) => `
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="https://cdn.tailwindcss.com"><\/script>
+        <link rel="stylesheet" href="../dist/styles.css">
         <title>${title}</title>
     </head>
     <body class="bg-gray-100 p-3 text-gray-800 dark:bg-slate-800 dark:text-slate-200 sm:p-5 md:p-6">
